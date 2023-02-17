@@ -76,6 +76,8 @@ function keyPressed(e){
         break;
         case "Comma": arrayFraseFormada.push(",");
         break;
+        case "Backspace": arrayFraseFormada.pop();
+        break;
         case "Enter": 
             mostrarfrase(); 
             clearIntTxt();
@@ -98,3 +100,4 @@ function keyPressedNow(e){
     console.log(e.code)
 }
 
+// Fazer o desencriptador, percorrendo string da frase formada e fazendo voltar ao normal
