@@ -5,14 +5,13 @@ let arrayFraseFormada = [];
 let inpTxt = document.querySelector("#inpTxt");
 let button = document.querySelector("#encriptBtn");
 let textUl = document.querySelector("#textUl");
+let btnDescrypt = document.querySelector("#descryptBtn").addEventListener("click", descrypt);
+
 
 // Functions
 
 //Clear Text Input
-document.addEventListener("load", clearIntTxt())
-function clearIntTxt(){
-    inpTxt.value = "";
-}
+inpTxt.value = "";
 
 // Detected pressed key, convert and send it to array
 document.addEventListener('keydown', keyPressed);
@@ -92,12 +91,91 @@ function mostrarfrase(){
     newLi.innerText = arrayFraseFormada.join("");
     textUl.append(newLi);
     arrayFraseFormada = [];
+    clearIntTxt();
 }
 
 // printing keys
 document.addEventListener('keydown', keyPressedNow);
 function keyPressedNow(e){
-    console.log(e.code)
+    console.log(e.code);
 }
 
-// Fazer o desencriptador, percorrendo string da frase formada e fazendo voltar ao normal
+// TODO: Fazer o desencriptador, percorrendo string da frase formada e fazendo voltar ao normal
+
+// ----- Descriptor -----
+
+
+function descrypt(){
+    let inputTxtDescrypt = document.querySelector("#inputTxtDescrypt").value;
+    let k = inputTxtDescrypt;
+    
+    let fraseFinal = k.split(" ");
+    fraseFinal.pop(1);
+
+    for(i = 0; i < k.length; i++){
+        switch(k[i]){
+            case "d": fraseFinal.push("a");
+            break;
+            case "e": fraseFinal.push("b");
+            break;
+            case "f": fraseFinal.push("c");
+            break;
+            case "g": fraseFinal.push("d");
+            break;
+            case "h": fraseFinal.push("e");
+            break;
+            case "i": fraseFinal.push("f");
+            break;
+            case "j": fraseFinal.push("g");
+            break;
+            case "k": fraseFinal.push("h");
+            break;
+            case "l": fraseFinal.push("i");
+            break;
+            case "m": fraseFinal.push("j");
+            break;
+            case "n": fraseFinal.push("k");
+            break;
+            case "o": fraseFinal.push("l");
+            break;
+            case "p": fraseFinal.push("m");
+            break;
+            case "q": fraseFinal.push("n");
+            break;
+            case "r": fraseFinal.push("o");
+            break;
+            case "s": fraseFinal.push("p");
+            break;
+            case "t": fraseFinal.push("q");
+            break;
+            case "u": fraseFinal.push("r");
+            break;
+            case "v": fraseFinal.push("s");
+            break;
+            case "w": fraseFinal.push("t");
+            break;
+            case "x": fraseFinal.push("u");
+            break;
+            case "y": fraseFinal.push("v");
+            break;
+            case "z": fraseFinal.push("w");
+            break;
+            case "a": fraseFinal.push("x");
+            break;
+            case "b": fraseFinal.push("y");
+            break;
+            case "c": fraseFinal.push("z");
+            break;
+            case "-": fraseFinal.push(" ");
+            break;
+            case ",": fraseFinal.push(",");
+            break;
+        }
+    }
+    
+    console.log(fraseFinal.join(""));
+}
+
+// console.log("Frase Descriptada: " + fraseFinal.slice(fraseFinal.length / 2));
+
+
